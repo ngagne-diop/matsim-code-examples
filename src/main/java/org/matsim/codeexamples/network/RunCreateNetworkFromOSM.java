@@ -28,7 +28,7 @@ import java.util.Set;
  */
 public class RunCreateNetworkFromOSM {
 
-	private static String UTM32nAsEpsg = "EPSG:25832";
+	private static String UTM32nAsEpsg = "EPSG:2154"; // For France
 	private static Path input = Paths.get("/path/to/your/input/data.osm.pbf");
 	private static Path filterShape = Paths.get("/path/to/your/filter/shape-file.shp");
 
@@ -38,8 +38,7 @@ public class RunCreateNetworkFromOSM {
 
 	private void create() throws MalformedURLException {
 
-		// choose an appropriate coordinate transformation. OSM Data is in WGS84. When working in central Germany,
-		// EPSG:25832 or EPSG:25833 as target system is a good choice
+		// choose an appropriate coordinate transformation. OSM Data is in WGS84. 
 		CoordinateTransformation transformation = TransformationFactory.getCoordinateTransformation(
 				TransformationFactory.WGS84, UTM32nAsEpsg
 		);
